@@ -16,7 +16,7 @@ s_splt = cleen(reg)
 cops = reg
 
 
-#To Open Dictionary file
+#Open dictionary file
 with open('freq_dict.json', 'r') as openfile:
 	jsnob = json.load(openfile)
 
