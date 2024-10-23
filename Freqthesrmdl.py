@@ -15,7 +15,7 @@ import gensim
 from nltk.data import find
 
 reg = 'And from the first floor to the sixth they sought and conjectured and delved in their brains.'
-s_splt = cleen(reg)#using cleaner function from dict to process string!!!*****
+s_splt = cleen(reg)#using cleaner function from dict to process strin
 cops = reg
 
 
@@ -28,7 +28,7 @@ freq = jsnob
 #***COMPLEX WORD IDENTIFICATION***
 #This version of identify currently outputs a list of omplex words based on dict frequency
 #function takes in list of split string
-#strictly returns parameter terms as well as terms not in the dictionary
+#strictly returns parameter terms as well as terms not found in the dictionary
 def identify(list):
 	wrds = []
 
@@ -36,7 +36,7 @@ def identify(list):
 	for word in list:
 
 #if the word is in the dictionary and word freq value is less than 6
-		if word in freq and freq[word] < 6:#maybe reverse is true?
+		if word in freq and freq[word] < 6:
 
 #append word to empty outter list
 			wrds.append(word)
@@ -65,7 +65,7 @@ def w_embed(c_list):
 	model = gensim.models.KeyedVectors.load_word2vec_format(word2vec_sample, binary=False)
 
 #create an empty list outside loop
-	w1 = []#***maybe change name
+	w1 = []
 
 
 	doop = 0
@@ -77,10 +77,10 @@ def w_embed(c_list):
 		c_set = wordnet.synsets(c)
 
 #create an empty list within first loop
-		w2 = []#***maybe change name
+		w2 = []
 
 #if a word from the given list can be found within the gensim model's vocab
-		if c in model.key_to_index:#key_to_index is the new name/func for vocab (github)
+		if c in model.key_to_index:
 
 #create a variable that finds 15 most similar words to
 # a given word using gensim's most similar function
@@ -92,7 +92,7 @@ def w_embed(c_list):
 #append the word of the tuple to the list within the 1stloop
 				w2.append(w)
 
-#Thesaurus extension** if word is not in w2vmodel and is within synset(thesaurus) 
+#Thesaurus extension** if word is not in w2vmodel and is within synset 
 		elif c not in model.key_to_index and c_set:
 
 #for every synset in the synsets set to a word
@@ -115,10 +115,8 @@ def w_embed(c_list):
 
 
 #append the word into an inner list(w2)
-						w2.append(lemma.name())#check syn.lemma() for single terms to save/append
+						w2.append(lemma.name())
 
-#in the case where the given complex word is not within the w2vmodels
-# vocab, or the thesaurus
 		else:
 
 #append word to an inner list, (saves terms that are too unique?)	
@@ -141,7 +139,6 @@ print(ng)
 
 
 #***SUBSTITUTION RANK***
-#It works!!! Look at notes for psuedo
 def rink(lisht):
 	topw = []
 	maxs = ''
@@ -152,10 +149,7 @@ def rink(lisht):
 		else:
 			maxv = 0 #max counter integer for each single list
 			for wrd in l:
-				# maxv = 0 #this seems to return last term in given list***
 				if wrd in freq:
-					# print(wrd)
-					# print(freq[wrd])
 					if freq[wrd]>maxv:
 						maxv = freq[wrd]
 						maxs = wrd
