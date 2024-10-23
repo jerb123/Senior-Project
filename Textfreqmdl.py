@@ -12,10 +12,9 @@ import gensim
 
 from nltk.data import find
 
-# sat = 'This conjecture informs her interest in future research missions to the moon. Most of the comedies end in marriage, with characters returning to their socially dictated gender roles after previously defying them, but there are some notable exceptions.'
 reg = 'And from the first floor to the sixth they sought and conjectured and delved in their brains.'
 
-s_splt = cleen(reg)#using cleaner function from dict to process string!!!*****
+s_splt = cleen(reg)#using cleaner function from dict to process string
 cops = reg
 
 
@@ -27,13 +26,7 @@ freq = jsnob
 
 
 #***COMPLEX WORD IDENTIFICATION( UPDATED )***
-#This version of identify currently outputs a list of omplex words based on dict frequency
-#function takes in list of split string
-#strictly returns parameter terms as well as terms not in the dictionary
-# for w in s_splt:
-# 	if w in freq:
-# 		# print(w)
-
+#This version of identify currently returns a list of complex words based on dict frequency
 def identify(list):
 	wrds = []
 
@@ -41,11 +34,10 @@ def identify(list):
 	for word in list:
 
 #if the word is in the dictionary and word freq value is less than 6
-		if word in freq and freq[word] < 6:#maybe reverse is true?
+		if word in freq and freq[word] < 6:
 
 #append word to empty outter list
 			wrds.append(word)
-			# print('freq', freq[word], word)
 
 #else if the lower case term is not in the dictionary
 		elif word.lower() not in freq:
@@ -80,23 +72,19 @@ def w_embed(c_list):
 		w2 = []
 
 #if a word from the given list can be found within the gensim model's vocab
-		if c in model.key_to_index:#key_to_index is the new name/func for vocab (github)
+		if c in model.key_to_index:
 
-#create a variable that finds 15 most similar words to
-# a given word using gensim's most similar function
+#create a variable that finds 10 most similar words to a given word using gensim's most similar function
 			sim = model.most_similar(positive=[c], topn = 10)
 
 #for every tuple within the similar words varible
-#Rank*** can potentially fit in here
 			for w, v in sim:
 
 #append the word of the tuple to the list within the 1stloop
 				w2.append(w)
 
 		else:
-
-#in the case where the given complex word is not within
-# the models vocab append the term to a list of the inner 1stloop
+ 
 			w2.append(c)
 
 #append the inner loop lists to the list outside the loops
@@ -113,7 +101,6 @@ print(ng)
 
 
 #***SUBSTITUTION RANK***
-#It works!!! Look at notes for psuedo
 def rink(lisht):
 	topw = []
 	maxs = ''
@@ -124,10 +111,7 @@ def rink(lisht):
 		else:
 			maxv = 0 #max counter integer for each single list
 			for wrd in l:
-				# maxv = 0 #this seems to return last term in given list***
 				if wrd in freq:
-					# print(wrd)
-					# print(freq[wrd])
 					if freq[wrd]>maxv:
 						maxv = freq[wrd]
 						maxs = wrd
