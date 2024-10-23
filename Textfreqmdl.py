@@ -1,7 +1,5 @@
 #Jeremias Brea De Los Angeles
-#Lexical simplifier
-
-#Model 3
+#Lexical simplifier 3
 
 #import json to open dictionary file
 import json
