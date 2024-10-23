@@ -138,5 +138,5 @@ def substitute(compl, simpl, ssplt, copst):
 			copst = new
 	l = copst	 
 	return l
-print(cops)
+#print(cops)
 print(substitute(comp_W, simp_W, s_splt, cops))
