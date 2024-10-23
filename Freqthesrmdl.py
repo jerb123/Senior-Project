@@ -15,7 +15,7 @@ import gensim
 from nltk.data import find
 
 reg = 'And from the first floor to the sixth they sought and conjectured and delved in their brains.'
-s_splt = cleen(reg)#using cleaner function from dict to process strin
+s_splt = cleen(reg)#using cleaner function from dict to process string
 cops = reg
 
 
@@ -27,7 +27,6 @@ freq = jsnob
 
 #***COMPLEX WORD IDENTIFICATION***
 #This version of identify currently outputs a list of omplex words based on dict frequency
-#function takes in list of split string
 #strictly returns parameter terms as well as terms not found in the dictionary
 def identify(list):
 	wrds = []
@@ -82,7 +81,7 @@ def w_embed(c_list):
 #if a word from the given list can be found within the gensim model's vocab
 		if c in model.key_to_index:
 
-#create a variable that finds 15 most similar words to
+#create a variable that finds 10 most similar words to
 # a given word using gensim's most similar function
 			sim = model.most_similar(positive=[c], topn = 10)
 
@@ -119,7 +118,7 @@ def w_embed(c_list):
 
 		else:
 
-#append word to an inner list, (saves terms that are too unique?)	
+#append word to an inner list
 			w2.append(c)
 
 
