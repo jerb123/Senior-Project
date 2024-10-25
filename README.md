@@ -6,8 +6,9 @@ simplicity and clarity. For specific information about methodology, results, and
 **[Dumonym: Crafting and Assessing Lexical Simplification, from algorithms to models](Dym.pdf)**
 
 ---
-**Language Used**
+##Language Used
 - Python
+---
 **Pipeline**
 - Complex Word Identfication: identifies words as complex from a given sentence
 - Substitution Generation: generates synonyms or alternatives for each word in a given list of complex words
