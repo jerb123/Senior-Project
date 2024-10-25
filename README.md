@@ -21,7 +21,7 @@ Each model follows this pipeline with distinct aspects to improve quality.
 - JSON
   
 ## Datasets
-*(Data used for saved dictionary)
+*(All text data used for saved dictionary)
 - Children Stories (lower reading level): ["Children Stories Text Corpus"](https://www.kaggle.com/datasets/edenbd/children-stories-text-corpus?resource=download), accessed May 02, 2024.
 - Short Stories: ["Short Stories for Children"](https://andonovicmilica.wordpress.com/wp-content/uploads/2018/07/short-stories-for-children.pdf).
 - Diary of a Wimpy Kid: Double Down by Jeff Kinney, 2016: [PDF](https://thebookshelfbeforeme.files.wordpress.com/2020/04/diary-of-a-wimpy-kid-double-down-by-jeff-kinney.pdf).
